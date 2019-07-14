@@ -6,8 +6,8 @@ apply plugin: 'androidx.navigation.safeargs'
 apply plugin: 'com.cookpad.android.licensetools'
 
 android {
-    compileSdkVersion build_versions.target_sdk
-    buildToolsVersion build_versions.build_tools
+    compileSdkVersion Integer.parseInt(project.ANDROID_BUILD_TARGET_SDK_VERSION)
+    buildToolsVersion project.ANDROID_BUILD_TOOLS_VERSION
 
     defaultConfig {
         applicationId project.APPLICATIONID
@@ -73,7 +73,6 @@ dependencies {
     kapt deps.dagger.compiler
 
     implementation deps.gson
-
     implementation deps.timber
 
     debugImplementation deps.chunk.runtime
