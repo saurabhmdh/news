@@ -2,16 +2,16 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <group android:checkableBehavior="single"
            android:id="@+id/navigation_group_setting">
-        <item
-                android:id="@+id/nav_setting"
-                android:checkable="false"
-                android:icon="@drawable/ic_settings"
-                android:title="@string/menu_settings" />
+    <item
+        android:id="@+id/nav_features"
+        android:checkable="false"
+        android:icon="@drawable/ic_settings"
+        android:title="@string/menu_featured" />
 
-        <item
-                android:id="@+id/nav_aaa"
-                android:checkable="false"
-                android:icon="@drawable/ic_account"
-                android:title="@string/menu_settings" />
+    <item
+        android:id="@+id/nav_browse"
+        android:checkable="false"
+        android:icon="@drawable/ic_account"
+        android:title="@string/menu_watch" />
     </group>
 </menu>

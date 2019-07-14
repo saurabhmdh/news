@@ -9,8 +9,21 @@
     <fragment
         android:id="@+id/navigation_home"
         android:name="com.axion.news.views.fragments.HomeFragment"
-        tools:layout="@layout/activity_main">
+        android:label="@string/menu_featured"
+        tools:layout="@layout/fragment_features">
+        <action
+            android:id="@+id/action_feature_to_browser"
+            app:destination="@id/navigation_browse"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+    </fragment>
 
-
+    <fragment
+            android:id="@+id/navigation_browse"
+            android:name="com.axion.news.views.fragments.BrowseFragment"
+            android:label="@string/menu_watch"
+            tools:layout="@layout/fragment_browse">
     </fragment>
 </navigation>
