@@ -1,6 +1,7 @@
 package com.axion.news.di
 
-import com.readystatesoftware.chuck.internal.ui.MainActivity
+
+import com.axion.news.views.activity.MainActivity
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 
