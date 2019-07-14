@@ -16,7 +16,7 @@ android {
         versionCode Integer.parseInt(project.VERSION_CODE)
         versionName project.VERSION_NAME
         vectorDrawables.useSupportLibrary = true
-        // Enabling multidex support.
+
         multiDexEnabled true
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
@@ -25,6 +25,10 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
+    }
+
+    dataBinding {
+        enabled = true
     }
 }
 
@@ -82,4 +86,14 @@ dependencies {
     implementation deps.navigation.fragment_ktx
 
     implementation deps.paging.runtime
+}
+kapt {
+    javacOptions {
+        option("-Xmaxerrs", 5000)
+        option("-Xmaxwarns", 5000)
+    }
+}
+// Android Extensions plugin enhancements reference : https://blog.jetbrains.com/kotlin/2017/08/kotlin-1-1-4-is-out
+androidExtensions {
+    experimental = true
 }
