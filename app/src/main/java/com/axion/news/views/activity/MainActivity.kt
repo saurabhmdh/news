@@ -8,15 +8,14 @@ import androidx.core.view.GravityCompat
 import androidx.databinding.DataBindingUtil
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.LiveData
+
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.NavigationUI
-import androidx.navigation.ui.onNavDestinationSelected
-import androidx.navigation.ui.setupWithNavController
+import androidx.navigation.ui.*
 import com.axion.news.R
 import com.axion.news.databinding.ActivityMainBinding
-import com.axion.news.views.fragments.HomeFragmentDirections
+
 import com.google.android.material.navigation.NavigationView
 import dagger.android.DispatchingAndroidInjector
 import dagger.android.support.HasSupportFragmentInjector
@@ -27,23 +26,23 @@ class MainActivity : AppCompatActivity(), HasSupportFragmentInjector {
 
     @Inject
     lateinit var dispatchingAndroidInjector: DispatchingAndroidInjector<Fragment>
-
+    lateinit var binding: ActivityMainBinding
     private lateinit var drawerLayout: DrawerLayout
     private lateinit var navController: NavController
     private lateinit var appBarConfiguration: AppBarConfiguration
 
+    private var currentNavController: LiveData<NavController>? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val binding: ActivityMainBinding = DataBindingUtil.setContentView(this, R.layout.activity_main)
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
 
         drawerLayout = binding.drawerLayout
         setSupportActionBar(binding.toolbar)
         supportActionBar?.setDisplayShowTitleEnabled(true)
-        val topLevelDestinations = setOf(R.id.navigation_home)
+        val topLevelDestinations = setOf(R.id.navigation_home, R.id.navigation_browse)
 
-        appBarConfiguration = AppBarConfiguration.Builder(topLevelDestinations)
-            .setDrawerLayout(drawerLayout)
-            .build()
+        appBarConfiguration = AppBarConfiguration.Builder(topLevelDestinations).setDrawerLayout(drawerLayout).build()
         navController = Navigation.findNavController(this, R.id.home_navigation_fragment)
 
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration)
@@ -57,19 +56,19 @@ class MainActivity : AppCompatActivity(), HasSupportFragmentInjector {
                 }
                 R.id.nav_browse -> {
                     navController.navigate(R.id.navigation_browse)
+
                 }
             }
             NavigationUI.onNavDestinationSelected(menuItem, navController)
         }
 
-        navController.addOnDestinationChangedListener{_, _,_ ->
-            Timber.i("saurabh addOnDestinationChangedListener ")
-        }
+
         with(binding.navView) {
             setupWithNavController(navController)
             setNavigationItemSelectedListener(NavigationListener())
         }
     }
+
 
     override fun supportFragmentInjector() = dispatchingAndroidInjector
 
@@ -79,7 +78,7 @@ class MainActivity : AppCompatActivity(), HasSupportFragmentInjector {
         return super.onCreateOptionsMenu(menu)
     }
 
-    override fun onSupportNavigateUp(): Boolean = NavigationUI.navigateUp(navController, appBarConfiguration) || super.onSupportNavigateUp()
+    override fun onSupportNavigateUp(): Boolean = currentNavController?.value?.navigateUp() ?: false
 
     override fun onBackPressed() {
         if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
