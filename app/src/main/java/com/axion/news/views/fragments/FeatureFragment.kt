@@ -5,10 +5,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import com.axion.news.databinding.FragmentFeaturesBinding
 import com.axion.news.di.Injectable
+import com.axion.news.network.api.Status
 import com.axion.news.util.fragment.autoCleared
 import com.axion.news.viewmodel.home.FeatureViewModel
 import timber.log.Timber
@@ -29,6 +31,15 @@ class FeatureFragment: Fragment(), Injectable {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewModel = createViewModel()
+
+        viewModel.getAllContent().observe(this, Observer {
+            when (it?.status) {
+                Status.SUCCESS -> {
+                    Timber.i("Success ${it.data?.posts}")
+                }
+                else -> {Timber.i("There is some problem to load content")}
+            }
+        })
         Timber.i("FeatureFragment view started.")
     }
 

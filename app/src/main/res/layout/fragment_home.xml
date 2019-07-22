@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<layout>
 <LinearLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:orientation="vertical"
@@ -8,3 +9,5 @@
     <fragment android:id="@+id/feature_fragment" android:layout_width="match_parent" android:layout_height="500dp"
               android:name="com.axion.news.views.fragments.FeatureFragment"/>
 </LinearLayout>
+
+</layout>

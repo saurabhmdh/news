@@ -5,6 +5,7 @@ import com.axion.news.BuildConfig
 import com.axion.news.constants.Constants
 import com.axion.news.network.api.NetworkApi
 import com.axion.news.network.retrofit.RetrofitBuilderFactory
+import com.axion.news.network.retrofit.UtilOkHttpClient
 import com.readystatesoftware.chuck.ChuckInterceptor
 import dagger.Module
 import dagger.Provides
@@ -24,7 +25,8 @@ class NewsAppModule {
     @Provides
     @Singleton
     internal fun provideOkHttpClient(context: Application): OkHttpClient {
-        val builder = OkHttpClient.Builder()
+        val client = UtilOkHttpClient.unsafeOkHttpClient
+        val builder = client.newBuilder()
 
         builder.takeIf { BuildConfig.DEBUG}.also {
             val interceptor = HttpLoggingInterceptor()
