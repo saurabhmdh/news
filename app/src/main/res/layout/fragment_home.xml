@@ -3,11 +3,32 @@
 <LinearLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:orientation="vertical"
+        android:background="@color/colorPrimaryDark"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-    <fragment android:id="@+id/feature_fragment" android:layout_width="match_parent" android:layout_height="500dp"
+    <fragment android:id="@+id/feature_fragment" android:layout_width="match_parent" android:layout_height="wrap_content"
               android:name="com.axion.news.views.fragments.FeatureFragment"/>
+
+    <TextView android:layout_width="match_parent"
+              android:layout_height="60dp"
+              android:id="@+id/title"
+              android:paddingStart="10dp"
+              android:paddingTop="10dp"
+              android:textColor="@android:color/darker_gray"
+              android:background="@drawable/feature_text_gradient"
+              android:textSize="25sp"
+              android:maxLines="1"
+              android:ellipsize="end"
+              android:text="@string/text_more_what_you_like"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:elevation="3dp"
+            android:id="@+id/bottom">
+
+    </androidx.recyclerview.widget.RecyclerView>
 </LinearLayout>
 
 </layout>
