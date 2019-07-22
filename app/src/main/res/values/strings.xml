@@ -4,4 +4,9 @@
     <string name="menu_settings">Settings</string>
     <string name="menu_featured">Featured</string>
     <string name="menu_watch">Browse</string>
+
+
+    <!-- Feature pages -->
+    <string name="string_special_report">Special Report</string>
+
 </resources>

@@ -1,9 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout >
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-      android:orientation="vertical" android:background="@android:color/holo_red_light"
-      android:layout_width="match_parent"
-      android:layout_height="match_parent">
+<layout xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:android="http://schemas.android.com/apk/res/android">
 
-</LinearLayout>
+    <RelativeLayout
+            android:id="@+id/coordinatorLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="match_parent"
+                android:layout_height="500dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:background="@android:color/black"
+                android:layout_marginStart="8dp"/>
+
+        <TextView android:layout_width="match_parent" android:layout_height="30dp" android:id="@+id/special_report" android:text="@string/string_special_report"/>
+    </RelativeLayout>
 </layout>

@@ -9,9 +9,7 @@ import com.axion.news.databinding.FragmentFeaturesBinding
 import com.axion.news.di.Injectable
 import com.axion.news.util.fragment.autoCleared
 
-
-class HomeFragment: Fragment(), Injectable {
-
+class FeatureFragment: Fragment(), Injectable {
     var mBinding by autoCleared<FragmentFeaturesBinding>()
 
 
