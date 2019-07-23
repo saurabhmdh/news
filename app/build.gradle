@@ -11,7 +11,7 @@ android {
             storePassword 'axion@1'
             keyAlias = 'axion'
             keyPassword 'axion@1'
-            storeFile file('private_key.pepk')
+            storeFile file('../Keys')
         }
     }
     compileSdkVersion Integer.parseInt(project.ANDROID_BUILD_TARGET_SDK_VERSION)
@@ -32,6 +32,7 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
         }
     }
 
