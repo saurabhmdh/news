@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.PagerSnapHelper
 import com.axion.news.databinding.FragmentFeaturesBinding
 import com.axion.news.di.Injectable
@@ -49,9 +50,16 @@ class FeatureFragment: Fragment(), Injectable {
                     mBinding.content = content
                     Timber.i("loading following data = $content")
                 }
-                else -> {Timber.i("There is some problem to load content")}
+                Status.LOADING -> {}
+                Status.ERROR -> {Timber.i("There is some problem to load content")}
             }
         })
+
+        mBinding.coordinatorLayout.setOnClickListener {
+            mBinding.content?.let {
+                view?.findNavController()?.navigate(HomeFragmentDirections.actionHomeToDetail(it))
+            }
+        }
     }
 
     private fun setupViewModel() {

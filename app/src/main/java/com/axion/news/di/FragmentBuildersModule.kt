@@ -1,6 +1,7 @@
 package com.axion.news.di
 
 import com.axion.news.views.fragments.*
+import com.axion.news.views.fragments.detail.DetailFragment
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 
@@ -15,4 +16,7 @@ abstract class FragmentBuildersModule {
 
     @ContributesAndroidInjector
     abstract fun contributeFeatureFragment(): FeatureFragment
+
+    @ContributesAndroidInjector
+    abstract fun contributeDetailFragment(): DetailFragment
 }

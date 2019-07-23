@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+	<data>
+		<variable name="content" type="com.axion.news.network.responses.Content"/>
+	</data>
+	<ScrollView android:layout_width="match_parent"
+            android:background="@color/colorPrimaryDark"
+            android:layout_height="match_parent">
+
+		<LinearLayout android:orientation="vertical"
+	          android:layout_width="match_parent"
+	          android:layout_height="wrap_content">
+
+			<androidx.appcompat.widget.AppCompatImageView
+				android:layout_width="wrap_content"
+				android:padding="5dp"
+				android:id="@+id/feature_image"
+				android:scaleType="fitXY"
+				app:setImage="@{content.featureImage}"
+				android:layout_gravity="center"
+				android:layout_height="wrap_content"/>
+
+			<TextView android:layout_width="match_parent"
+		          android:layout_height="wrap_content"
+		          android:id="@+id/title"
+		          android:paddingStart="10dp"
+		          android:paddingTop="10dp"
+		          android:textColor="@android:color/white"
+		          android:textSize="20sp"
+		          android:text="@{content.title}"/>
+
+			<androidx.appcompat.widget.AppCompatRatingBar
+				android:id="@+id/ratingBar"
+				android:theme="@style/RatingBar"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:numStars="5"
+				android:scaleX="0.6"
+				android:scaleY="0.6"
+				android:transformPivotX="0dp"
+				android:stepSize="0.5"
+				android:rating="4.7" />
+
+			<!-- Author information section -->
+
+		</LinearLayout>
+	</ScrollView>
+</layout>

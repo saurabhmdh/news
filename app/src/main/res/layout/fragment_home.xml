@@ -1,62 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout>
-<LinearLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        android:orientation="vertical"
-        android:background="@color/colorPrimaryDark"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:background="@color/colorPrimaryDark"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
     <fragment android:id="@+id/feature_fragment"
-              android:layout_width="match_parent"
-              android:layout_height="wrap_content"
-              android:name="com.axion.news.views.fragments.FeatureFragment"/>
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:name="com.axion.news.views.fragments.FeatureFragment"/>
 
     <TextView android:layout_width="match_parent"
-              android:layout_height="wrap_content"
-              android:id="@+id/title"
-              android:paddingStart="10dp"
-              android:paddingTop="10dp"
-              android:textColor="@android:color/darker_gray"
-              android:textSize="25sp"
-              android:maxLines="1"
-              android:ellipsize="end"
-              android:text="@string/text_more_what_you_like"/>
+          android:layout_height="wrap_content"
+          android:id="@+id/title"
+          android:paddingStart="10dp"
+          android:paddingTop="10dp"
+          android:textColor="@android:color/darker_gray"
+          android:textSize="25sp"
+          android:maxLines="1"
+          android:ellipsize="end"
+          android:text="@string/text_more_what_you_like"/>
 
     <TextView android:layout_width="match_parent"
-              android:layout_height="wrap_content"
-              android:id="@+id/sub_title"
-              android:paddingStart="10dp"
-              android:textColor="@android:color/darker_gray"
-              android:textSize="20sp"
-              android:maxLines="1"
-              android:ellipsize="end"
-              android:text="@string/text_home_description"/>
+          android:layout_height="wrap_content"
+          android:id="@+id/sub_title"
+          android:paddingStart="10dp"
+          android:textColor="@android:color/darker_gray"
+          android:textSize="20sp"
+          android:maxLines="1"
+          android:ellipsize="end"
+          android:text="@string/text_home_description"/>
 
     <androidx.recyclerview.widget.RecyclerView
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:elevation="3dp"
-            android:id="@+id/bottom" />
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:elevation="3dp"
+        android:id="@+id/bottom" />
 
     <TextView android:layout_width="match_parent"
-              android:layout_height="wrap_content"
-              android:paddingStart="10dp"
-              android:paddingTop="10dp"
-              android:textColor="@android:color/darker_gray"
-              android:textSize="25sp"
-              android:maxLines="1"
-              android:ellipsize="end"
-              android:text="@string/text_world_today"/>
+          android:layout_height="wrap_content"
+          android:paddingStart="10dp"
+          android:paddingTop="10dp"
+          android:textColor="@android:color/darker_gray"
+          android:textSize="25sp"
+          android:maxLines="1"
+          android:ellipsize="end"
+          android:text="@string/text_world_today"/>
 
     <TextView android:layout_width="match_parent"
-              android:layout_height="wrap_content"
-              android:paddingStart="10dp"
-              android:textColor="@android:color/darker_gray"
-              android:textSize="20sp"
-              android:maxLines="1"
-              android:ellipsize="end"
-              android:text="@string/text_world_today_description"/>
+          android:layout_height="wrap_content"
+          android:paddingStart="10dp"
+          android:textColor="@android:color/darker_gray"
+          android:textSize="20sp"
+          android:maxLines="1"
+          android:ellipsize="end"
+          android:text="@string/text_world_today_description"/>
 </LinearLayout>
 
 </layout>

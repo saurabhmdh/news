@@ -8,12 +8,14 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.PagerSnapHelper
 
 import com.axion.news.databinding.FragmentHomeBinding
 import com.axion.news.di.Injectable
 import com.axion.news.network.api.Status
+import com.axion.news.network.responses.Content
 import com.axion.news.services.AppExecutors
 import com.axion.news.util.fragment.autoCleared
 import com.axion.news.viewmodel.home.FeatureViewModel
@@ -47,7 +49,11 @@ class HomeFragment: Fragment(), Injectable {
     }
 
     private fun setupListView() {
-        imageAdapter = FeatureImageAdapter(appExecutors)
+        imageAdapter = FeatureImageAdapter(appExecutors, object : FeatureImageAdapter.ClickCallback{
+            override fun onClick(data: Content, position: Int) {
+                view?.findNavController()?.navigate(HomeFragmentDirections.actionHomeToDetail(data))
+            }
+        })
         with(mBinding.bottom) {
             layoutManager = LinearLayoutManager(
                 context,

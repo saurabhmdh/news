@@ -18,6 +18,14 @@
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
             app:popExitAnim="@anim/slide_out_right"/>
+
+        <action
+            android:id="@+id/action_home_to_detail"
+            app:destination="@id/navigation_detail"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
     </fragment>
 
     <fragment
@@ -25,5 +33,13 @@
             android:name="com.axion.news.views.fragments.BrowseFragment"
             android:label="@string/menu_watch"
             tools:layout="@layout/fragment_browse">
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_detail"
+        android:name="com.axion.news.views.fragments.detail.DetailFragment"
+        android:label=""
+        tools:layout="@layout/fragment_details">
+        <argument android:name="content" app:argType="com.axion.news.network.responses.Content"/>
     </fragment>
 </navigation>

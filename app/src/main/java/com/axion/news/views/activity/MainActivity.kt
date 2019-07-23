@@ -31,8 +31,6 @@ class MainActivity : AppCompatActivity(), HasSupportFragmentInjector {
     private lateinit var navController: NavController
     private lateinit var appBarConfiguration: AppBarConfiguration
 
-    private var currentNavController: LiveData<NavController>? = null
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
@@ -73,12 +71,12 @@ class MainActivity : AppCompatActivity(), HasSupportFragmentInjector {
     override fun supportFragmentInjector() = dispatchingAndroidInjector
 
     //Add menu as profile
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.activity_menu, menu)
-        return super.onCreateOptionsMenu(menu)
-    }
+//    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+//        menuInflater.inflate(R.menu.activity_menu, menu)
+//        return super.onCreateOptionsMenu(menu)
+//    }
 
-    override fun onSupportNavigateUp(): Boolean = currentNavController?.value?.navigateUp() ?: false
+    override fun onSupportNavigateUp() = NavigationUI.navigateUp(navController, appBarConfiguration)
 
     override fun onBackPressed() {
         if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
