@@ -65,10 +65,7 @@ class HomeFragment: Fragment(), Injectable {
         viewModel.getAllContent().observe(this, Observer { networkResponse ->
             when (networkResponse?.status) {
                 Status.SUCCESS -> {
-                    val content = networkResponse.data?.posts?.first { it.featured && it.featureImage.isNotEmpty() }
-                    imageAdapter.submitList(networkResponse.data?.posts)
-//                    mBinding.content = content
-                    //Timber.i("loading following data = $content")
+                    imageAdapter.submitList(networkResponse.data)
                 }
                 else -> {
                     Timber.i("There is some problem to load content")}

@@ -45,7 +45,7 @@ class FeatureFragment: Fragment(), Injectable {
         viewModel.getAllContent().observe(this, Observer { networkResponse ->
             when (networkResponse?.status) {
                 Status.SUCCESS -> {
-                    val content = networkResponse.data?.posts?.first { it.featured && it.featureImage.isNotEmpty() }
+                    val content = networkResponse.data?.first { it.featured && it.featureImage.isNotEmpty() }
                     mBinding.content = content
                     Timber.i("loading following data = $content")
                 }

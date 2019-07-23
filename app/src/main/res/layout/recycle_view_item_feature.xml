@@ -12,7 +12,7 @@
             app:cardUseCompatPadding="true">
     <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/search_history_icon"
-            android:layout_width="250dp"
+            android:layout_width="150dp"
             android:layout_height="300dp"
             android:scaleType="fitXY"
             android:layout_gravity="center"

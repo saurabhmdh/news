@@ -42,13 +42,14 @@
         app:defaultNavHost="true"
         app:navGraph="@navigation/navigation_home"/>
 
-    <com.google.android.material.bottomnavigation.BottomNavigationView
+        <!-- Temporary commented code for bottom navigation -->
+    <!--<com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/navigation"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="@color/colorPrimary"
         android:theme="@style/Toolbar"
-        app:menu="@menu/menu_bottom_navigation" />
+        app:menu="@menu/menu_bottom_navigation" />-->
     </LinearLayout>
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/nav_view"

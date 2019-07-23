@@ -47,20 +47,20 @@ class MainActivity : AppCompatActivity(), HasSupportFragmentInjector {
 
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration)
 
-        binding.navigation.setupWithNavController(navController)
-
-        binding.navigation.setOnNavigationItemSelectedListener{menuItem ->
-            when(menuItem.itemId) {
-                R.id.nav_features -> {
-                    navController.navigate(R.id.navigation_home)
-                }
-                R.id.nav_browse -> {
-                    navController.navigate(R.id.navigation_browse)
-
-                }
-            }
-            NavigationUI.onNavDestinationSelected(menuItem, navController)
-        }
+//        binding.navigation.setupWithNavController(navController)
+//
+//        binding.navigation.setOnNavigationItemSelectedListener{menuItem ->
+//            when(menuItem.itemId) {
+//                R.id.nav_features -> {
+//                    navController.navigate(R.id.navigation_home)
+//                }
+//                R.id.nav_browse -> {
+//                    navController.navigate(R.id.navigation_browse)
+//
+//                }
+//            }
+//            NavigationUI.onNavDestinationSelected(menuItem, navController)
+//        }
 
 
         with(binding.navView) {

@@ -8,5 +8,5 @@ class FeatureViewModel @Inject constructor(
     private val contentRepo: ContentRepository
 ): ObservableViewModel() {
 
-    fun getAllContent() = contentRepo.getAllContent()
+    fun getAllContent() = contentRepo.getCacheContents()
 }
