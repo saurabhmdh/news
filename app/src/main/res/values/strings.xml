@@ -10,7 +10,10 @@
     <string name="string_special_report">Special Report</string>
     <string name="text_more_what_you_like">More of what you like</string>
     <string name="text_home_description">Enjoy a little of everything you love</string>
-
     <string name="text_world_today">World today</string>
     <string name="text_world_today_description">Minimum news influencing your daily life</string>
+
+
+    <!-- Detail screen -->
+    <string name="detail_author">Author</string>
 </resources>
