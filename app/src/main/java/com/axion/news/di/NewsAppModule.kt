@@ -25,7 +25,7 @@ class NewsAppModule {
     @Provides
     @Singleton
     internal fun provideOkHttpClient(context: Application): OkHttpClient {
-        val client = UtilOkHttpClient.unsafeOkHttpClient
+        val client = UtilOkHttpClient.safeOkHttpClient
         val builder = client.newBuilder()
 
         builder.takeIf { BuildConfig.DEBUG}.also {

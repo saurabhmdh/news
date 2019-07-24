@@ -24,7 +24,7 @@ class DetailFragment: Fragment(), Injectable {
     var mBinding by autoCleared<FragmentDetailsBinding>()
     @Inject lateinit var viewModelFactory: ViewModelProvider.Factory
     val content by lazy { arguments?.let {  DetailFragmentArgs.fromBundle(it).content} }
-    val viewModel by lazy { ViewModelProviders.of(this, viewModelFactory).get(DetailViewModel::class.java) }
+    private val viewModel by lazy { ViewModelProviders.of(this, viewModelFactory).get(DetailViewModel::class.java) }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         mBinding = FragmentDetailsBinding.inflate(inflater, container, false)

@@ -4,4 +4,7 @@
     <!--<color name="colorPrimary">#262727</color>-->
     <color name="colorPrimaryDark">#262727</color>
     <color name="colorAccent">#FDFDFD</color>
+
+    <color name="text_color_white">@android:color/white</color>
+    <color name="text_color_gray">@color/colorPrimary</color>
 </resources>

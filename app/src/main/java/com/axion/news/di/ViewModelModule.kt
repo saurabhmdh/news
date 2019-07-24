@@ -2,6 +2,7 @@ package com.axion.news.di
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import com.axion.news.viewmodel.author.AuthorViewModel
 import com.axion.news.viewmodel.detail.DetailViewModel
 import com.axion.news.viewmodel.home.FeatureViewModel
 import dagger.Binds
@@ -24,4 +25,8 @@ abstract class ViewModelModule {
     @ViewModelKey(DetailViewModel::class)
     abstract fun bindDetailViewModel(detailViewModel: DetailViewModel): ViewModel
 
+    @Binds
+    @IntoMap
+    @ViewModelKey(AuthorViewModel::class)
+    abstract fun bindAuthorViewModel(detailViewModel: AuthorViewModel): ViewModel
 }

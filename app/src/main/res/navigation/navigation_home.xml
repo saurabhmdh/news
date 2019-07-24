@@ -8,7 +8,7 @@
 
     <fragment
         android:id="@+id/navigation_home"
-        android:name="com.axion.news.views.fragments.HomeFragment"
+        android:name="com.axion.news.views.fragments.home.HomeFragment"
         android:label="@string/menu_featured"
         tools:layout="@layout/fragment_features">
         <action
@@ -26,13 +26,29 @@
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
             app:popExitAnim="@anim/slide_out_right"/>
+
+        <action
+            android:id="@+id/action_home_to_author"
+            app:destination="@id/navigation_author"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+
     </fragment>
 
     <fragment
             android:id="@+id/navigation_browse"
-            android:name="com.axion.news.views.fragments.BrowseFragment"
+            android:name="com.axion.news.views.fragments.home.BrowseFragment"
             android:label="@string/menu_watch"
             tools:layout="@layout/fragment_browse">
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_author"
+        android:name="com.axion.news.views.fragments.author.AuthorFragment"
+        android:label="@string/detail_author"
+        tools:layout="@layout/fragment_browse">
     </fragment>
 
     <fragment

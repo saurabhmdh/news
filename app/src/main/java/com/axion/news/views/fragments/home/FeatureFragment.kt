@@ -1,4 +1,4 @@
-package com.axion.news.views.fragments
+package com.axion.news.views.fragments.home
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,21 +9,18 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.findNavController
-import androidx.recyclerview.widget.PagerSnapHelper
 import com.axion.news.databinding.FragmentFeaturesBinding
 import com.axion.news.di.Injectable
 import com.axion.news.network.api.Status
-import com.axion.news.services.AppExecutors
 import com.axion.news.util.fragment.autoCleared
 import com.axion.news.viewmodel.home.FeatureViewModel
-import com.axion.news.views.adapter.FeatureImageAdapter
 import timber.log.Timber
 import javax.inject.Inject
 
 class FeatureFragment: Fragment(), Injectable {
     var mBinding by autoCleared<FragmentFeaturesBinding>()
     @Inject lateinit var viewModelFactory: ViewModelProvider.Factory
-    private lateinit var viewModel: FeatureViewModel
+    private val viewModel by lazy { ViewModelProviders.of(this, viewModelFactory).get(FeatureViewModel::class.java) }
 
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -38,7 +35,6 @@ class FeatureFragment: Fragment(), Injectable {
     }
 
     private fun setupUI() {
-        setupViewModel()
         setupObserver()
     }
 
@@ -57,14 +53,12 @@ class FeatureFragment: Fragment(), Injectable {
 
         mBinding.coordinatorLayout.setOnClickListener {
             mBinding.content?.let {
-                view?.findNavController()?.navigate(HomeFragmentDirections.actionHomeToDetail(it))
+                view?.findNavController()?.navigate(
+                    HomeFragmentDirections.actionHomeToDetail(
+                        it
+                    )
+                )
             }
         }
     }
-
-    private fun setupViewModel() {
-        viewModel = createViewModel()
-    }
-
-    private fun createViewModel(): FeatureViewModel = ViewModelProviders.of(this, viewModelFactory).get(FeatureViewModel::class.java)
 }

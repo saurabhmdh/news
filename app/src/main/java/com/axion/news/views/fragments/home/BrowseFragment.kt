@@ -1,4 +1,4 @@
-package com.axion.news.views.fragments
+package com.axion.news.views.fragments.home
 
 import android.os.Bundle
 import android.view.LayoutInflater
