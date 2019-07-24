@@ -2,8 +2,8 @@
     <string name="app_name">News</string>
 
     <string name="menu_settings">Settings</string>
-    <string name="menu_featured">Axion</string>
-    <string name="menu_watch">Browse</string>
+    <string name="menu_featured" translatable="false">Axion</string>
+    <string name="menu_watch" translatable="false">Browse</string>
 
 
     <!-- Feature pages -->
@@ -16,4 +16,7 @@
 
     <!-- Detail screen -->
     <string name="detail_author">Author</string>
+
+    <!-- Author Screen -->
+    <string name="author_bio">Bio</string>
 </resources>

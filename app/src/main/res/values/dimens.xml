@@ -4,5 +4,14 @@
     <dimen name="nav_header_vertical_spacing">16dp</dimen>
 
     <!-- https://material.io/develop/android/theming/typography/ -->
+    <!-- https://material.io/design/typography/the-type-system.html#type-scale -->
     <dimen name="textAppearanceHeadline5">24sp</dimen>
+    <dimen name="textAppearanceHeadline6">20sp</dimen>
+
+    <dimen name="textAppearanceSubtitle1">16sp</dimen>
+
+    <dimen name="textAppearanceBody1">16sp</dimen>
+    <dimen name="textAppearanceBody2">14sp</dimen>
+
+
 </resources>

@@ -13,9 +13,8 @@
     <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/search_history_icon"
             android:layout_width="150dp"
-            android:layout_height="300dp"
-            android:scaleType="fitXY"
-            android:layout_gravity="center"
+            android:layout_height="150dp"
+            android:scaleType="fitCenter"
             app:setImage="@{content.featureImage}"
             tools:ignore="VectorDrawableCompat" />
     </androidx.cardview.widget.CardView>

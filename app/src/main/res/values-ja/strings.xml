@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="app_name">ニュース</string>
+	<string name="menu_settings">設定</string>
+	<string name="menu_watch">Browse</string>
+
+
+	<!-- Feature pages -->
+	<string name="string_special_report">特集</string>
+	<string name="text_more_what_you_like">読了履歴に基づくおすすめ</string>
+	<string name="text_home_description">興味関心のおもむくままに</string>
+	<string name="text_world_today">世界で起きていること</string>
+	<string name="text_world_today_description">現在地を知るためのニュース</string>
+
+
+	<!-- Detail screen -->
+	<string name="detail_author">作者</string>
+
+	<!-- Author Screen -->
+	<string name="author_bio">Bio</string>
+</resources>

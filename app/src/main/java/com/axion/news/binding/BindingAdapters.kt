@@ -11,7 +11,6 @@ fun ImageView.setImage(url: String?) {
     if (!url.isNullOrEmpty()) {
         Glide.with(this.context)
             .load(url)
-            .transition(DrawableTransitionOptions.withCrossFade())
             .into(this)
     }
 }
