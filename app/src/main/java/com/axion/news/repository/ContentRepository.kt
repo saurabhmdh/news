@@ -29,13 +29,13 @@ class ContentRepository @Inject constructor(
     }
 
     fun getCacheContents(): LiveData<Resource<List<Content>>> {
-        return object :CacheNetworkBoundResource<List<Content>, ContentResponse>(executors) {
+        return object: CacheNetworkBoundResource<List<Content>, ContentResponse>(executors) {
             override fun shouldFetch(data: List<Content>?) = data.isNullOrEmpty()
             override fun saveCallResult(item: ContentResponse) {
                 contentDao.insertAll(item.posts)
             }
             override fun loadFromDb() = contentDao.loadAll()
-            override fun createCall() = services.getContents(hashMapOf(Pair("key", Constants.API_KEY)))
+            override fun createCall() = services.getContents(hashMapOf(Pair("key", Constants.API_KEY)/*, Pair("limit", "all")*/))
 
         }.asLiveData()
     }
