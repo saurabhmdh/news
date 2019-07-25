@@ -36,7 +36,7 @@
           android:layout_height="wrap_content"
           android:padding="10dp"
           android:textColor="@color/text_color_white"
-          android:textSize="@dimen/textAppearanceBody1"
+          android:textSize="@dimen/textAppearanceBody2"
           android:text="@{author.bio}"/>
 	<!-- We need to write known far -->
 </LinearLayout>

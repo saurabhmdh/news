@@ -53,11 +53,7 @@ class FeatureFragment: Fragment(), Injectable {
 
         mBinding.coordinatorLayout.setOnClickListener {
             mBinding.content?.let {
-                view?.findNavController()?.navigate(
-                    HomeFragmentDirections.actionHomeToDetail(
-                        it
-                    )
-                )
+                view?.findNavController()?.navigate(HomeFragmentDirections.actionHomeToDetail(it.title, it))
             }
         }
     }

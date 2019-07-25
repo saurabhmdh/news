@@ -47,7 +47,7 @@
 		          android:textSize="@dimen/textAppearanceSubtitle1"
 		          android:text="@string/detail_author"/>
 
-			<RelativeLayout android:layout_width="wrap_content" android:layout_height="wrap_content">
+			<RelativeLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/author_detail">
 				<!-- May be user Image -->
 				<androidx.appcompat.widget.AppCompatImageView
 					android:id="@+id/user_image"
@@ -60,23 +60,23 @@
 					android:layout_height="80dp"/>
 
 				<TextView android:layout_width="match_parent"
-				          android:id="@+id/user_name"
-				          android:layout_height="wrap_content"
-				          android:paddingStart="10dp"
-				          android:layout_toEndOf="@+id/user_image"
-				          android:textColor="@color/text_color_white"
-				          android:textSize="@dimen/textAppearanceBody1"
-				          android:text="@{author.name}"/>
+			          android:id="@+id/user_name"
+			          android:layout_height="wrap_content"
+			          android:paddingStart="10dp"
+			          android:layout_toEndOf="@+id/user_image"
+			          android:textColor="@color/text_color_white"
+			          android:textSize="@dimen/textAppearanceBody1"
+			          android:text="@{author.name}"/>
 
 				<TextView android:layout_width="match_parent"
-				          android:id="@+id/speciality"
-				          android:layout_height="wrap_content"
-				          android:paddingStart="10dp"
-				          android:layout_toEndOf="@+id/user_image"
-				          android:layout_below="@+id/user_name"
-				          android:textColor="@color/text_color_white"
-				          android:textSize="@dimen/textAppearanceBody2"
-				          android:text="@{author.bio}"/>
+			          android:id="@+id/speciality"
+			          android:layout_height="wrap_content"
+			          android:paddingStart="10dp"
+			          android:layout_toEndOf="@+id/user_image"
+			          android:layout_below="@+id/user_name"
+			          android:textColor="@color/text_color_white"
+			          android:textSize="@dimen/textAppearanceBody2"
+			          android:text="@{author.bio}"/>
 			</RelativeLayout>
 			<!-- Author information section End -->
 
@@ -84,6 +84,7 @@
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
 				android:textColor="@color/text_color_white"
+				android:textSize="@dimen/textAppearanceBody1"
 				android:id="@+id/content_view" />
 		</LinearLayout>
 	</ScrollView>

@@ -4,11 +4,13 @@ import android.os.Build
 import android.os.Bundle
 import android.text.Html
 import android.view.*
+import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.view.menu.MenuBuilder
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
+import androidx.navigation.fragment.findNavController
 import com.axion.news.R
 import com.axion.news.databinding.FragmentDetailsBinding
 import com.axion.news.di.Injectable
@@ -16,6 +18,7 @@ import com.axion.news.network.api.Status
 import com.axion.news.util.fragment.autoCleared
 import com.axion.news.viewmodel.detail.DetailViewModel
 import com.axion.news.viewmodel.home.FeatureViewModel
+import com.axion.news.views.fragments.home.HomeFragmentDirections
 import timber.log.Timber
 import javax.inject.Inject
 
@@ -40,8 +43,8 @@ class DetailFragment: Fragment(), Injectable {
     //Actionbar title
     private fun setupRestOfUI() {
         mBinding.content = content
-        Timber.i("Saurabh loading content .. $content")
 
+        Timber.i("Saurabh loading content .. $content")
         viewModel.getAllAuthors().observe(this, Observer {
             when (it?.status) {
                 Status.SUCCESS -> {
@@ -54,6 +57,11 @@ class DetailFragment: Fragment(), Injectable {
         })
 
         setupContent()
+        setupOnClickListeners()
+    }
+
+    private fun setupOnClickListeners() {
+       mBinding.authorDetail.setOnClickListener { findNavController().navigate(DetailFragmentDirections.actionDetailToAuthor()) }
     }
 
     private fun setupContent() {

@@ -51,11 +51,7 @@ class HomeFragment: Fragment(), Injectable {
     private fun setupListView() {
         imageAdapter = FeatureImageAdapter(appExecutors, object : FeatureImageAdapter.ClickCallback{
             override fun onClick(data: Content, position: Int) {
-                view?.findNavController()?.navigate(
-                    HomeFragmentDirections.actionHomeToDetail(
-                        data
-                    )
-                )
+                view?.findNavController()?.navigate(HomeFragmentDirections.actionHomeToDetail(data.title,data))
             }
         })
         with(mBinding.bottom) {
