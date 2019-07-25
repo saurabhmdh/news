@@ -14,14 +14,13 @@
         android:layout_height="0dp"
         android:layout_weight="1" />
 
-    <!-- Temporary commented code for bottom navigation -->
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/navigation"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         app:itemBackground="@color/colorPrimary"
-        app:itemIconTint="@color/text_color_white"
-        app:itemTextColor="@color/text_color_white"
+        app:itemIconTint="@color/selector_bottom_menu"
+        app:labelVisibilityMode="unlabeled"
         app:menu="@menu/menu_bottom_navigation" />
     </LinearLayout>
 </layout>
