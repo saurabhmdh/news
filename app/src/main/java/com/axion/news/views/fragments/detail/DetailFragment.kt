@@ -4,9 +4,6 @@ import android.os.Build
 import android.os.Bundle
 import android.text.Html
 import android.view.*
-import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.view.menu.MenuBuilder
-import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
@@ -18,13 +15,12 @@ import com.axion.news.di.Injectable
 import com.axion.news.network.api.Status
 import com.axion.news.util.fragment.autoCleared
 import com.axion.news.viewmodel.detail.DetailViewModel
-import com.axion.news.viewmodel.home.FeatureViewModel
-import com.axion.news.views.fragments.home.HomeFragmentDirections
+import com.axion.news.views.fragments.BaseFragment
 import timber.log.Timber
 import javax.inject.Inject
 
 //If any item click its will open details.
-class DetailFragment: Fragment(), Injectable {
+class DetailFragment: BaseFragment(), Injectable {
     var mBinding by autoCleared<FragmentDetailsBinding>()
     @Inject lateinit var viewModelFactory: ViewModelProvider.Factory
     val content by lazy { arguments?.let {  DetailFragmentArgs.fromBundle(it).content} }

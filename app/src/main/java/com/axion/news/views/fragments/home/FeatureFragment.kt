@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
@@ -14,10 +13,11 @@ import com.axion.news.di.Injectable
 import com.axion.news.network.api.Status
 import com.axion.news.util.fragment.autoCleared
 import com.axion.news.viewmodel.home.FeatureViewModel
+import com.axion.news.views.fragments.BaseFragment
 import timber.log.Timber
 import javax.inject.Inject
 
-class FeatureFragment: Fragment(), Injectable {
+class FeatureFragment: BaseFragment(), Injectable {
     var mBinding by autoCleared<FragmentFeaturesBinding>()
     @Inject lateinit var viewModelFactory: ViewModelProvider.Factory
     private val viewModel by lazy { ViewModelProviders.of(this, viewModelFactory).get(FeatureViewModel::class.java) }

@@ -2,7 +2,6 @@ package com.axion.news.views.fragments.home
 
 import android.os.Bundle
 import android.view.*
-import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
@@ -19,11 +18,12 @@ import com.axion.news.services.AppExecutors
 import com.axion.news.util.fragment.autoCleared
 import com.axion.news.viewmodel.home.FeatureViewModel
 import com.axion.news.views.adapter.FeatureImageAdapter
+import com.axion.news.views.fragments.BaseFragment
 import timber.log.Timber
 import javax.inject.Inject
 
 
-class HomeFragment: Fragment(), Injectable {
+class HomeFragment: BaseFragment(), Injectable {
 
     var mBinding by autoCleared<FragmentHomeBinding>()
     @Inject lateinit var viewModelFactory: ViewModelProvider.Factory
