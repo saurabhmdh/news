@@ -7,5 +7,5 @@
 
     <color name="bottom_menu_color">@android:color/darker_gray</color>
     <color name="text_color_white">@android:color/white</color>
-    <color name="text_color_gray">@color/colorPrimary</color>
+    <color name="text_color_gray">@android:color/darker_gray</color>
 </resources>
