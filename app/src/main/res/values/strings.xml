@@ -1,9 +1,10 @@
 <resources>
     <string name="app_name">News</string>
 
+    <string name="menu_home" translatable="false">Home</string>
     <string name="menu_settings">Settings</string>
     <string name="menu_featured" translatable="false">Axion</string>
-    <string name="menu_watch" translatable="false">Browse</string>
+    <string name="menu_browse" translatable="false">Browse</string>
 
 
     <!-- Feature pages -->

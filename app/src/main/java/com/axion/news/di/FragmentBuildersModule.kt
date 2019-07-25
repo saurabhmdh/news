@@ -5,6 +5,7 @@ import com.axion.news.views.fragments.detail.DetailFragment
 import com.axion.news.views.fragments.home.BrowseFragment
 import com.axion.news.views.fragments.home.FeatureFragment
 import com.axion.news.views.fragments.home.HomeFragment
+import com.axion.news.views.fragments.settings.SettingsFragment
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 
@@ -25,4 +26,7 @@ abstract class FragmentBuildersModule {
 
     @ContributesAndroidInjector
     abstract fun contributeAuthorFragment(): AuthorFragment
+
+    @ContributesAndroidInjector
+    abstract fun contributeSettingsFragment(): SettingsFragment
 }

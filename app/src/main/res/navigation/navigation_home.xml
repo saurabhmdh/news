@@ -3,11 +3,11 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/home"
-    app:startDestination="@+id/navigation_home">
+    android:id="@+id/navigation_home"
+    app:startDestination="@+id/navigation_home_fragment">
 
     <fragment
-        android:id="@+id/navigation_home"
+        android:id="@+id/navigation_home_fragment"
         android:name="com.axion.news.views.fragments.home.HomeFragment"
         android:label="@string/menu_featured"
         tools:layout="@layout/fragment_features">
@@ -40,7 +40,7 @@
     <fragment
             android:id="@+id/navigation_browse"
             android:name="com.axion.news.views.fragments.home.BrowseFragment"
-            android:label="@string/menu_watch"
+            android:label="@string/menu_browse"
             tools:layout="@layout/fragment_browse">
     </fragment>
 

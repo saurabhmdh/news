@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            app:startDestination="@+id/navigation_settings"
+            android:id="@+id/settings">
+	<fragment
+		android:id="@+id/navigation_settings"
+		android:name="com.axion.news.views.fragments.settings.SettingsFragment"
+		android:label="@string/menu_settings"
+		tools:layout="@layout/fragment_browse" />
+</navigation>
