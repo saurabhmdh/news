@@ -20,7 +20,7 @@ class ContentRepository @Inject constructor(
     private val contentDao: ContentDao
 ) {
     private val repoListRateLimit = RateLimiter<String>(10, TimeUnit.HOURS)
-
+    val key = Constants.CONTENTES
     //Now we need to cache data..
     fun getAllContent(): LiveData<Resource<ContentResponse>> {
         return object : NetworkBoundResource<ContentResponse>(executors) {
@@ -30,7 +30,7 @@ class ContentRepository @Inject constructor(
 
     fun getCacheContents(): LiveData<Resource<List<Content>>> {
         return object: CacheNetworkBoundResource<List<Content>, ContentResponse>(executors) {
-            override fun shouldFetch(data: List<Content>?) = data.isNullOrEmpty()
+            override fun shouldFetch(data: List<Content>?) = data.isNullOrEmpty() || repoListRateLimit.shouldFetch(key)
             override fun saveCallResult(item: ContentResponse) {
                 contentDao.insertAll(item.posts)
             }
