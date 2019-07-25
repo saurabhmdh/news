@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
+import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.findNavController
 import com.axion.news.R
 import com.axion.news.databinding.FragmentDetailsBinding
@@ -61,7 +62,12 @@ class DetailFragment: Fragment(), Injectable {
     }
 
     private fun setupOnClickListeners() {
-       mBinding.authorDetail.setOnClickListener { findNavController().navigate(DetailFragmentDirections.actionDetailToAuthor()) }
+       mBinding.authorDetail.setOnClickListener {
+           val extras = FragmentNavigatorExtras(
+               mBinding.userImage to "imageView"
+           )
+           findNavController().navigate(R.id.action_detail_to_author, null, null, extras)
+       }
     }
 
     private fun setupContent() {
