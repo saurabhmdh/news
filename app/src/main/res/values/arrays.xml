@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+	<string-array name="array_section_display_name">
+		<item>@string/string_tag1</item>
+		<item>@string/string_tag2</item>
+		<item>@string/string_tag3</item>
+		<item>@string/string_tag4</item>
+		<item>@string/string_tag5</item>
+		<item>@string/string_tag6</item>
+	</string-array>
+
+	<integer-array name="array_category_colors">
+		<item>@color/colorTitle1</item>
+		<item>@color/colorTitle2</item>
+		<item>@color/colorTitle3</item>
+		<item>@color/colorTitle4</item>
+		<item>@color/colorTitle5</item>
+		<item>@color/colorTitle6</item>
+	</integer-array>
+
+</resources>

@@ -8,4 +8,11 @@
     <color name="bottom_menu_color">@android:color/darker_gray</color>
     <color name="text_color_white">@android:color/white</color>
     <color name="text_color_gray">@android:color/darker_gray</color>
+
+    <color name="colorTitle1">#52DEB7</color>
+    <color name="colorTitle2">#F25292</color>
+    <color name="colorTitle3">#02BCDD</color>
+    <color name="colorTitle4">#FFC107</color>
+    <color name="colorTitle5">#FF9800</color>
+    <color name="colorTitle6">#C22844</color>
 </resources>

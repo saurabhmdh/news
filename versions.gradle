@@ -41,7 +41,7 @@ versions.retrofit_url_manager = '1.4.0'
 
 
 //Kotlin Coroutines and Retrofit
-
+versions.flex_box = "1.1.0"
 versions.kotlinx_coroutines_android = '1.0.1'
 versions.retrofit2_kotlin_coroutines_adapter = '0.9.2'
 

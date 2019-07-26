@@ -95,6 +95,7 @@ dependencies {
     implementation deps.navigation.fragment_ktx
 
     implementation deps.paging.runtime
+    implementation deps.support.flexbox
 }
 kapt {
     javacOptions {

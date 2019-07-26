@@ -24,6 +24,13 @@
     <string name="string_magazines_description">Enjoy a little of everything you love</string>
     <string name="string_top_tags">Your Top Genres</string>
 
+    <string name="string_tag1" translatable="false">ML</string>
+    <string name="string_tag2" translatable="false">AR / VR </string>
+    <string name="string_tag3" translatable="false">IoT</string>
+    <string name="string_tag4" translatable="false">India</string>
+    <string name="string_tag5" translatable="false">Robot</string>
+    <string name="string_tag6" translatable="false">China</string>
+
     <!-- Author Screen -->
     <string name="author_bio">Bio</string>
 

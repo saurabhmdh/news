@@ -9,23 +9,24 @@
 			android:layout_height="wrap_content">
 
 			<TextView android:layout_width="match_parent"
-			          android:layout_height="wrap_content"
-			          android:paddingStart="10dp"
-			          android:paddingTop="10dp"
-			          android:textColor="@color/text_color_gray"
-			          android:textSize="@dimen/textAppearanceHeadline5"
-			          android:maxLines="1"
-			          android:ellipsize="end"
-			          android:text="@string/string_trading"/>
+		          android:layout_height="wrap_content"
+		          android:paddingStart="10dp"
+		          android:paddingTop="10dp"
+		          android:textColor="@color/text_color_gray"
+		          android:textSize="@dimen/textAppearanceHeadline5"
+		          android:maxLines="1"
+		          android:ellipsize="end"
+		          android:text="@string/string_trading"/>
 
 			<TextView android:layout_width="match_parent"
-			          android:layout_height="wrap_content"
-			          android:paddingStart="10dp"
-			          android:textColor="@color/text_color_gray"
-			          android:textSize="@dimen/textAppearanceHeadline6"
-			          android:maxLines="1"
-			          android:ellipsize="end"
-			          android:text="@string/string_trading_description"/>
+		          android:layout_height="wrap_content"
+		          android:paddingStart="10dp"
+		          android:textColor="@color/text_color_gray"
+		          android:textSize="@dimen/textAppearanceHeadline6"
+		          android:maxLines="1"
+		          android:ellipsize="end"
+		          android:text="@string/string_trading_description"/>
+
 			<androidx.recyclerview.widget.RecyclerView
 				android:layout_width="match_parent"
 				android:layout_height="154dp"
@@ -33,23 +34,24 @@
 				android:id="@+id/trading"/>
 
 			<TextView android:layout_width="match_parent"
-			          android:layout_height="wrap_content"
-			          android:paddingStart="10dp"
-			          android:paddingTop="10dp"
-			          android:textColor="@color/text_color_gray"
-			          android:textSize="@dimen/textAppearanceHeadline5"
-			          android:maxLines="1"
-			          android:ellipsize="end"
-			          android:text="@string/string_magazines"/>
+		          android:layout_height="wrap_content"
+		          android:paddingStart="10dp"
+		          android:paddingTop="10dp"
+		          android:textColor="@color/text_color_gray"
+		          android:textSize="@dimen/textAppearanceHeadline5"
+		          android:maxLines="1"
+		          android:ellipsize="end"
+		          android:text="@string/string_magazines"/>
 
 			<TextView android:layout_width="match_parent"
-			          android:layout_height="wrap_content"
-			          android:paddingStart="10dp"
-			          android:textColor="@color/text_color_gray"
-			          android:textSize="@dimen/textAppearanceHeadline6"
-			          android:maxLines="1"
-			          android:ellipsize="end"
-			          android:text="@string/string_magazines_description"/>
+		          android:layout_height="wrap_content"
+		          android:paddingStart="10dp"
+		          android:textColor="@color/text_color_gray"
+		          android:textSize="@dimen/textAppearanceHeadline6"
+		          android:maxLines="1"
+		          android:ellipsize="end"
+		          android:text="@string/string_magazines_description"/>
+
 			<androidx.recyclerview.widget.RecyclerView
 				android:layout_width="match_parent"
 				android:layout_height="154dp"
@@ -57,14 +59,19 @@
 				android:id="@+id/magazine"/>
 
 			<TextView android:layout_width="match_parent"
-			          android:layout_height="wrap_content"
-			          android:paddingStart="10dp"
-			          android:paddingTop="10dp"
-			          android:textColor="@color/text_color_gray"
-			          android:textSize="@dimen/textAppearanceHeadline5"
-			          android:maxLines="1"
-			          android:ellipsize="end"
-			          android:text="@string/string_top_tags"/>
+		          android:layout_height="wrap_content"
+		          android:paddingStart="10dp"
+		          android:paddingTop="10dp"
+		          android:textColor="@color/text_color_gray"
+		          android:textSize="@dimen/textAppearanceHeadline5"
+		          android:maxLines="1"
+		          android:ellipsize="end"
+		          android:text="@string/string_top_tags"/>
+
+			<androidx.recyclerview.widget.RecyclerView
+				android:id="@+id/info_tags"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content" />
 		</LinearLayout>
 	</ScrollView>
 </layout>

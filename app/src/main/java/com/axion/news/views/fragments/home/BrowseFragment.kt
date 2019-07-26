@@ -18,7 +18,11 @@ import com.axion.news.util.kotlin.orZero
 import com.axion.news.viewmodel.home.BrowseViewModel
 
 import com.axion.news.views.adapter.FeatureImageAdapter
+import com.axion.news.views.adapter.TagAdapter
 import com.axion.news.views.fragments.BaseFragment
+import com.google.android.flexbox.FlexDirection
+import com.google.android.flexbox.FlexboxLayoutManager
+import com.google.android.flexbox.JustifyContent
 import timber.log.Timber
 import javax.inject.Inject
 import kotlin.math.min
@@ -30,7 +34,7 @@ class BrowseFragment: BaseFragment(), Injectable {
     private val viewModel by lazy { ViewModelProviders.of(this, viewModelFactory).get(BrowseViewModel::class.java) }
     private var treadingAdapter by autoCleared<FeatureImageAdapter>()
     private var magazineAdapter by autoCleared<FeatureImageAdapter>()
-
+    var tagAdapter by autoCleared<TagAdapter>()
     @Inject lateinit var appExecutors: AppExecutors
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -48,7 +52,18 @@ class BrowseFragment: BaseFragment(), Injectable {
         super.onViewCreated(view, savedInstanceState)
         setupTreading()
         setupMagazineList()
+        setupTagInfo()
         setupObserver()
+    }
+
+    private fun setupTagInfo() {
+        val layoutManager = FlexboxLayoutManager(context)
+        layoutManager.flexDirection = FlexDirection.ROW
+        layoutManager.justifyContent = JustifyContent.FLEX_START
+        mBinding.infoTags.layoutManager = layoutManager
+        tagAdapter = TagAdapter(appExecutors)
+        mBinding.infoTags.adapter = tagAdapter
+
     }
 
     private fun setupMagazineList() {
@@ -115,6 +130,10 @@ class BrowseFragment: BaseFragment(), Injectable {
                 else -> {
                     Timber.i("There is some problem to load content")}
             }
+        })
+
+        viewModel.getGenres().observe(this, Observer {
+            tagAdapter.submitList(it)
         })
     }
 }

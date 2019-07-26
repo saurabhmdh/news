@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+	<data>
+		<variable name="genres" type="com.axion.news.vo.Genres" />
+	</data>
+	<androidx.cardview.widget.CardView
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		app:cardCornerRadius="3dp"
+		android:padding="7dp"
+		app:cardBackgroundColor="@{genres.resColor}"
+		app:cardUseCompatPadding="true">
+		<androidx.appcompat.widget.AppCompatTextView
+			android:layout_width="180dp"
+			android:background="@drawable/feature_text_gradient"
+			android:text="@{genres.title}"
+			android:textColor="@color/text_color_white"
+			android:textAlignment="center"
+			android:gravity="center"
+			android:textSize="@dimen/textAppearanceHeadline5"
+			android:layout_height="?attr/actionBarSize"/>
+	</androidx.cardview.widget.CardView>
+</layout>
