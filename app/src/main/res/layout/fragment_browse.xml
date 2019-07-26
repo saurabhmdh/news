@@ -71,6 +71,7 @@
 			<androidx.recyclerview.widget.RecyclerView
 				android:id="@+id/info_tags"
 				android:layout_width="match_parent"
+				android:minHeight="200dp"
 				android:layout_height="wrap_content" />
 		</LinearLayout>
 	</ScrollView>

@@ -18,6 +18,8 @@ import com.axion.news.services.AppExecutors
 import com.axion.news.util.fragment.autoCleared
 import com.axion.news.viewmodel.home.FeatureViewModel
 import com.axion.news.views.adapter.FeatureImageAdapter
+import com.axion.news.views.custom.CirclePagerIndicatorDecoration
+import com.axion.news.views.custom.LinePagerIndicatorDecoration
 import com.axion.news.views.fragments.BaseFragment
 import timber.log.Timber
 import javax.inject.Inject
@@ -60,18 +62,18 @@ class HomeFragment: BaseFragment(), Injectable {
                 LinearLayoutManager.HORIZONTAL,
                 false
             )
-            //addItemDecoration(LinePagerIndicatorDecoration())
+            addItemDecoration(CirclePagerIndicatorDecoration())
             adapter = imageAdapter
         }
-        val snapHelper = PagerSnapHelper()
-        snapHelper.attachToRecyclerView(mBinding.bottom)
+//        val snapHelper = PagerSnapHelper()
+//        snapHelper.attachToRecyclerView(mBinding.bottom)
     }
 
     private fun setupObserver() {
         viewModel.getAllContent().observe(this, Observer { networkResponse ->
             when (networkResponse?.status) {
                 Status.SUCCESS -> {
-                    imageAdapter.submitList(networkResponse.data)
+                    imageAdapter.submitList(networkResponse.data?.subList(0, 10))
                 }
                 else -> {
                     Timber.i("There is some problem to load content")}

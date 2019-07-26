@@ -6,6 +6,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.findNavController
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.PagerSnapHelper
 import com.axion.news.R
 import com.axion.news.databinding.FragmentBrowseBinding
@@ -19,6 +20,7 @@ import com.axion.news.viewmodel.home.BrowseViewModel
 
 import com.axion.news.views.adapter.FeatureImageAdapter
 import com.axion.news.views.adapter.TagAdapter
+import com.axion.news.views.custom.LinePagerIndicatorDecoration
 import com.axion.news.views.fragments.BaseFragment
 import com.google.android.flexbox.FlexDirection
 import com.google.android.flexbox.FlexboxLayoutManager
@@ -57,13 +59,17 @@ class BrowseFragment: BaseFragment(), Injectable {
     }
 
     private fun setupTagInfo() {
-        val layoutManager = FlexboxLayoutManager(context)
-        layoutManager.flexDirection = FlexDirection.ROW
-        layoutManager.justifyContent = JustifyContent.FLEX_START
-        mBinding.infoTags.layoutManager = layoutManager
+//        val layoutManager = FlexboxLayoutManager(context)
+//        layoutManager.flexDirection = FlexDirection.ROW
+//        layoutManager.justifyContent = JustifyContent.FLEX_START
+//        mBinding.infoTags.layoutManager = layoutManager
+//        tagAdapter = TagAdapter(appExecutors)
+//        mBinding.infoTags.adapter = tagAdapter
         tagAdapter = TagAdapter(appExecutors)
-        mBinding.infoTags.adapter = tagAdapter
-
+        with (mBinding.infoTags) {
+            layoutManager = GridLayoutManager(context, 2)
+            adapter = tagAdapter
+        }
     }
 
     private fun setupMagazineList() {
@@ -79,11 +85,11 @@ class BrowseFragment: BaseFragment(), Injectable {
                 androidx.recyclerview.widget.LinearLayoutManager.HORIZONTAL,
                 false
             )
-            //addItemDecoration(LinePagerIndicatorDecoration())
+            addItemDecoration(LinePagerIndicatorDecoration())
             adapter = magazineAdapter
         }
-        val snapHelper = PagerSnapHelper()
-        snapHelper.attachToRecyclerView(mBinding.magazine)
+//        val snapHelper = PagerSnapHelper()
+//        snapHelper.attachToRecyclerView(mBinding.magazine)
     }
 
     private fun setupTreading() {
@@ -99,11 +105,11 @@ class BrowseFragment: BaseFragment(), Injectable {
                 androidx.recyclerview.widget.LinearLayoutManager.HORIZONTAL,
                 false
             )
-            //addItemDecoration(LinePagerIndicatorDecoration())
+            addItemDecoration(LinePagerIndicatorDecoration())
             adapter = treadingAdapter
         }
-        val snapHelper = PagerSnapHelper()
-        snapHelper.attachToRecyclerView(mBinding.trading)
+//        val snapHelper = PagerSnapHelper()
+//        snapHelper.attachToRecyclerView(mBinding.trading)
     }
 
     private fun setupObserver() {
@@ -124,7 +130,8 @@ class BrowseFragment: BaseFragment(), Injectable {
             when (networkResponse?.status) {
                 Status.SUCCESS -> {
                     if (networkResponse.data?.size.orZero() > 20) {
-                        magazineAdapter.submitList(networkResponse.data?.subList(20, networkResponse.data.size))
+                        val min = min(30, networkResponse.data?.size.orZero())
+                        magazineAdapter.submitList(networkResponse.data?.subList(20, min))
                     }
                 }
                 else -> {
