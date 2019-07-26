@@ -14,6 +14,11 @@
 
 	<!-- Detail screen -->
 	<string name="detail_author">作者</string>
+	<string name="string_trading">話題の記事</string>
+	<string name="string_trading_description">群衆の知恵を活用する</string>
+	<string name="string_magazines">編集者のおすすめ</string>
+	<string name="string_magazines_description">新しい知的発見の機会に</string>
+	<string name="string_top_tags">ジャンル</string>
 
 	<!-- Author Screen -->
 	<string name="author_bio">Bio</string>

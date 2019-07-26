@@ -39,4 +39,32 @@ class ContentRepository @Inject constructor(
 
         }.asLiveData()
     }
+
+    fun getTrendingNews(): LiveData<Resource<List<Content>>> {
+        return object: CacheNetworkBoundResource<List<Content>, ContentResponse>(executors) {
+            override fun shouldFetch(data: List<Content>?): Boolean {
+                return data.isNullOrEmpty() || data.size <= 10 || repoListRateLimit.shouldFetch(key)
+            }
+            override fun saveCallResult(item: ContentResponse) {
+                contentDao.insertAll(item.posts)
+            }
+            override fun loadFromDb() = contentDao.loadAll()
+            override fun createCall() = services.getContents(hashMapOf(Pair("key", Constants.API_KEY), Pair("page", "2")))
+
+        }.asLiveData()
+    }
+
+    fun getMagazines(): LiveData<Resource<List<Content>>> {
+        return object: CacheNetworkBoundResource<List<Content>, ContentResponse>(executors) {
+            override fun shouldFetch(data: List<Content>?): Boolean {
+                return data.isNullOrEmpty() || data.size <= 20 || repoListRateLimit.shouldFetch(key)
+            }
+            override fun saveCallResult(item: ContentResponse) {
+                contentDao.insertAll(item.posts)
+            }
+            override fun loadFromDb() = contentDao.loadAll()
+            override fun createCall() = services.getContents(hashMapOf(Pair("key", Constants.API_KEY), Pair("page", "3")))
+
+        }.asLiveData()
+    }
 }

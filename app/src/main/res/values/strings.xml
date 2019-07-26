@@ -18,6 +18,14 @@
     <!-- Detail screen -->
     <string name="detail_author">Author</string>
 
+    <string name="string_trading">Trending</string>
+    <string name="string_trading_description">Leverage Wisdom of Crowds</string>
+    <string name="string_magazines">Magazines</string>
+    <string name="string_magazines_description">Enjoy a little of everything you love</string>
+    <string name="string_top_tags">Your Top Genres</string>
+
     <!-- Author Screen -->
     <string name="author_bio">Bio</string>
+
+
 </resources>
