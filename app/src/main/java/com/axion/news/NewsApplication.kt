@@ -1,20 +1,23 @@
 package com.axion.news
 
-import android.app.Activity
 import android.content.Context
 import android.os.StrictMode
 import androidx.multidex.MultiDex
 import androidx.multidex.MultiDexApplication
 import com.axion.news.di.NewsAppInjector
 import com.axion.news.util.logger.ReleaseTree
+import dagger.android.AndroidInjector
 import dagger.android.DispatchingAndroidInjector
-import dagger.android.HasActivityInjector
+import dagger.android.HasAndroidInjector
+
 import timber.log.Timber
 import javax.inject.Inject
 
-class NewsApplication: MultiDexApplication(), HasActivityInjector {
+class NewsApplication: MultiDexApplication(), HasAndroidInjector {
 
-    @Inject lateinit var dispatchingAndroidInjector: DispatchingAndroidInjector<Activity>
+    override fun androidInjector(): AndroidInjector<Any> = dispatchingAndroidInjector
+
+    @Inject lateinit var dispatchingAndroidInjector: DispatchingAndroidInjector<Any>
 
     override fun onCreate() {
         if (BuildConfig.DEBUG) {
@@ -42,7 +45,6 @@ class NewsApplication: MultiDexApplication(), HasActivityInjector {
         Timber.i("Application running successfully....")
     }
 
-    override fun activityInjector() = dispatchingAndroidInjector
     override fun attachBaseContext(base: Context) {
         super.attachBaseContext(base)
         MultiDex.install(this)

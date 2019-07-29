@@ -4,7 +4,6 @@ import android.os.Bundle
 
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
-import androidx.fragment.app.Fragment
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer
 
@@ -14,13 +13,15 @@ import com.axion.news.R
 import com.axion.news.databinding.ActivityMainBinding
 import com.axion.news.util.navigation.setupWithNavController
 import dagger.android.DispatchingAndroidInjector
-import dagger.android.support.HasSupportFragmentInjector
+import dagger.android.HasAndroidInjector
+
 import javax.inject.Inject
 
-class MainActivity : AppCompatActivity(), HasSupportFragmentInjector {
+class MainActivity : AppCompatActivity(), HasAndroidInjector {
+    override fun androidInjector() = dispatchingAndroidInjector
 
     @Inject
-    lateinit var dispatchingAndroidInjector: DispatchingAndroidInjector<Fragment>
+    lateinit var dispatchingAndroidInjector: DispatchingAndroidInjector<Any>
     lateinit var binding: ActivityMainBinding
     private var currentNavController: LiveData<NavController>? = null
 
@@ -37,7 +38,7 @@ class MainActivity : AppCompatActivity(), HasSupportFragmentInjector {
         setupBottomNavigationBar()
     }
 
-    override fun supportFragmentInjector() = dispatchingAndroidInjector
+   // override fun supportFragmentInjector() = dispatchingAndroidInjector
 
     /**
      * Called on first creation and when restoring state.
