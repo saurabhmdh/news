@@ -48,9 +48,10 @@ dependencies {
     implementation deps.support.design
     implementation deps.support.recyclerview
 
-    implementation deps.support.fragment
+   // implementation deps.support.fragment
     implementation deps.support.constraintlayout
     implementation deps.support.multidex
+    implementation deps.support.support_preference_fragment
 
     implementation deps.room.runtime
     kapt deps.room.compiler

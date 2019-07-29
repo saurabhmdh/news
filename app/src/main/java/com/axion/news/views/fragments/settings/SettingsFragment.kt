@@ -2,16 +2,21 @@ package com.axion.news.views.fragments.settings
 
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import com.axion.news.di.Injectable
-import com.axion.news.views.fragments.BaseFragment
-import timber.log.Timber
+import androidx.preference.PreferenceFragmentCompat
+import com.axion.news.R
 
-class SettingsFragment: BaseFragment(), Injectable {
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return super.onCreateView(inflater, container, savedInstanceState)
+class SettingsFragment: PreferenceFragmentCompat(), Injectable {
+
+
+    override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
+        setPreferencesFromResource(R.xml.settings, rootKey)
+    }
+
+
+    override fun onResume() {
+        super.onResume()
+        activity?.invalidateOptionsMenu()
     }
 }

@@ -43,8 +43,8 @@ class BrowseFragment: BaseFragment(), Injectable {
         return mBinding.root
     }
 
-    override fun onCreateOptionsMenu(menu: Menu?, inflater: MenuInflater?) {
-        inflater?.inflate(R.menu.menu_browse, menu)
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.menu_browse, menu)
         super.onCreateOptionsMenu(menu, inflater)
     }
 

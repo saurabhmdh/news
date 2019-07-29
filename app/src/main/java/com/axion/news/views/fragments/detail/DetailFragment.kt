@@ -74,8 +74,8 @@ class DetailFragment: BaseFragment(), Injectable {
         }
     }
 
-    override fun onCreateOptionsMenu(menu: Menu?, inflater: MenuInflater?) {
-        inflater?.inflate(R.menu.menu_detail, menu)
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.menu_detail, menu)
         super.onCreateOptionsMenu(menu, inflater)
     }
 }
