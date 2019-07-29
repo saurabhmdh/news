@@ -113,6 +113,8 @@ class BrowseFragment: BaseFragment(), Injectable {
                         val list = networkResponse.data?.subList(10, min).orEmpty().toMutableList()
                         treadingAdapter.submitList(list)
                     }
+                    mBinding.trading.visibility = View.VISIBLE
+                    mBinding.tradingLoading.visibility = View.GONE
                 }
                 else -> {
                     Timber.i("There is some problem to load content")}
@@ -128,6 +130,8 @@ class BrowseFragment: BaseFragment(), Injectable {
                         list.shuffle()
                         magazineAdapter.submitList(list)
                     }
+                    mBinding.magazine.visibility = View.VISIBLE
+                    mBinding.magazineLoading.visibility = View.GONE
                 }
                 else -> {
                     Timber.i("There is some problem to load content")}

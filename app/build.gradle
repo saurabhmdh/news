@@ -96,6 +96,8 @@ dependencies {
 
     implementation deps.paging.runtime
     implementation deps.support.flexbox
+
+    implementation deps.loading_lib
 }
 kapt {
     javacOptions {

@@ -69,6 +69,8 @@ class HomeFragment: BaseFragment(), Injectable {
         viewModel.getAllContent().observe(this, Observer { networkResponse ->
             when (networkResponse?.status) {
                 Status.SUCCESS -> {
+                    mBinding.spinKit.visibility = View.GONE
+                    mBinding.bottom.visibility = View.VISIBLE
                     val list = networkResponse.data?.subList(0, 10).orEmpty().toMutableList()
                     list.shuffle()
                     imageAdapter.submitList(list)

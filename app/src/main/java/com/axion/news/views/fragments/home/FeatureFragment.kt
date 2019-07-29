@@ -45,6 +45,7 @@ class FeatureFragment: BaseFragment(), Injectable {
                     val content = networkResponse.data?.filter { it.featured && it.featureImage.isNotEmpty() }?.random()
                     mBinding.content = content
                     Timber.i("loading following data = $content")
+                    mBinding.spinKit.visibility = View.GONE
                 }
                 Status.LOADING -> {}
                 Status.ERROR -> {Timber.i("There is some problem to load content")}

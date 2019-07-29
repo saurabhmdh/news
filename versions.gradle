@@ -44,7 +44,7 @@ versions.retrofit_url_manager = '1.4.0'
 versions.flex_box = "1.1.0"
 versions.kotlinx_coroutines_android = '1.0.1'
 versions.retrofit2_kotlin_coroutines_adapter = '0.9.2'
-
+versions.loading_lib = '1.2.0'
 
 def deps = [:]
 
@@ -142,7 +142,7 @@ deps.license_tool_plugin = "com.cookpad.android.licensetools:license-tools-plugi
 
 //Kotlin Coroutines and Retrofit
 deps.kotlinx_coroutines_android = "org.jetbrains.kotlinx:kotlinx-coroutines-android:$versions.kotlinx_coroutines_android"
-
+deps.loading_lib = "com.github.ybq:Android-SpinKit:$versions.loading_lib"
 
 ext.deps = deps
 
