@@ -7,7 +7,6 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.PagerSnapHelper
 import com.axion.news.R
 
 import com.axion.news.databinding.FragmentHomeBinding
@@ -19,7 +18,6 @@ import com.axion.news.util.fragment.autoCleared
 import com.axion.news.viewmodel.home.FeatureViewModel
 import com.axion.news.views.adapter.FeatureImageAdapter
 import com.axion.news.views.custom.CirclePagerIndicatorDecoration
-import com.axion.news.views.custom.LinePagerIndicatorDecoration
 import com.axion.news.views.fragments.BaseFragment
 import timber.log.Timber
 import javax.inject.Inject
@@ -65,15 +63,15 @@ class HomeFragment: BaseFragment(), Injectable {
             addItemDecoration(CirclePagerIndicatorDecoration())
             adapter = imageAdapter
         }
-//        val snapHelper = PagerSnapHelper()
-//        snapHelper.attachToRecyclerView(mBinding.bottom)
     }
 
     private fun setupObserver() {
         viewModel.getAllContent().observe(this, Observer { networkResponse ->
             when (networkResponse?.status) {
                 Status.SUCCESS -> {
-                    imageAdapter.submitList(networkResponse.data?.subList(0, 10))
+                    val list = networkResponse.data?.subList(0, 10).orEmpty().toMutableList()
+                    list.shuffle()
+                    imageAdapter.submitList(list)
                 }
                 else -> {
                     Timber.i("There is some problem to load content")}

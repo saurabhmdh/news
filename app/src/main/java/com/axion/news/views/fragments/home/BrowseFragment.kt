@@ -7,7 +7,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.PagerSnapHelper
+
 import com.axion.news.R
 import com.axion.news.databinding.FragmentBrowseBinding
 import com.axion.news.di.Injectable
@@ -22,9 +22,7 @@ import com.axion.news.views.adapter.FeatureImageAdapter
 import com.axion.news.views.adapter.TagAdapter
 import com.axion.news.views.custom.LinePagerIndicatorDecoration
 import com.axion.news.views.fragments.BaseFragment
-import com.google.android.flexbox.FlexDirection
-import com.google.android.flexbox.FlexboxLayoutManager
-import com.google.android.flexbox.JustifyContent
+
 import timber.log.Timber
 import javax.inject.Inject
 import kotlin.math.min
@@ -59,12 +57,6 @@ class BrowseFragment: BaseFragment(), Injectable {
     }
 
     private fun setupTagInfo() {
-//        val layoutManager = FlexboxLayoutManager(context)
-//        layoutManager.flexDirection = FlexDirection.ROW
-//        layoutManager.justifyContent = JustifyContent.FLEX_START
-//        mBinding.infoTags.layoutManager = layoutManager
-//        tagAdapter = TagAdapter(appExecutors)
-//        mBinding.infoTags.adapter = tagAdapter
         tagAdapter = TagAdapter(appExecutors)
         with (mBinding.infoTags) {
             layoutManager = GridLayoutManager(context, 2)
@@ -118,7 +110,8 @@ class BrowseFragment: BaseFragment(), Injectable {
                 Status.SUCCESS -> {
                     if (networkResponse.data?.size.orZero() > 10) {
                         val min = min(20, networkResponse.data?.size.orZero())
-                        treadingAdapter.submitList(networkResponse.data?.subList(10, min))
+                        val list = networkResponse.data?.subList(10, min).orEmpty().toMutableList()
+                        treadingAdapter.submitList(list)
                     }
                 }
                 else -> {
@@ -131,7 +124,9 @@ class BrowseFragment: BaseFragment(), Injectable {
                 Status.SUCCESS -> {
                     if (networkResponse.data?.size.orZero() > 20) {
                         val min = min(30, networkResponse.data?.size.orZero())
-                        magazineAdapter.submitList(networkResponse.data?.subList(20, min))
+                        val list = networkResponse.data?.subList(20, min).orEmpty().toMutableList()
+                        list.shuffle()
+                        magazineAdapter.submitList(list)
                     }
                 }
                 else -> {
